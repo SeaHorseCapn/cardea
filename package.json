@@ -1,0 +1,56 @@
+{
+  "name": "cardea-cli",
+  "version": "0.2.0",
+  "description": "Multi-model orchestration CLI, dashboard, and MCP server for vendor CLIs and OpenAI-compatible workers",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeaHorseCapn/cardea.git"
+  },
+  "homepage": "https://github.com/SeaHorseCapn/cardea#readme",
+  "bugs": {
+    "url": "https://github.com/SeaHorseCapn/cardea/issues"
+  },
+  "keywords": [
+    "llm",
+    "mcp",
+    "cli",
+    "codex",
+    "claude",
+    "grok",
+    "openai-compatible"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "cardea": "./dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=20.10"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.202",
+    "@modelcontextprotocol/sdk": "1.29.0",
+    "@types/ws": "8.18.1",
+    "commander": "13.1.0",
+    "picocolors": "1.1.1",
+    "ws": "8.21.0",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.13.2",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}
