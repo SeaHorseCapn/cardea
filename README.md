@@ -6,6 +6,15 @@ Bring your own keys, or load Cardea into the LLM you already use.
 
 ## Quick Start
 
+Install straight from GitHub (Node 20.10+):
+
+```sh
+npm install -g github:SeaHorseCapn/cardea
+cardea doctor
+```
+
+Or from a clone, if you want to hack on it:
+
 ```sh
 git clone https://github.com/SeaHorseCapn/cardea.git
 cd cardea
