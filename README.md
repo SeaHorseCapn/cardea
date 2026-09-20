@@ -6,10 +6,10 @@ Bring your own keys, or load Cardea into the LLM you already use.
 
 ## Quick Start
 
-Install straight from GitHub (Node 20.10+):
+Install the latest release (Node 20.10+, no npm account or registry needed):
 
 ```sh
-npm install -g github:SeaHorseCapn/cardea
+npm install -g https://github.com/SeaHorseCapn/cardea/releases/latest/download/cardea-cli.tgz
 cardea doctor
 ```
 
