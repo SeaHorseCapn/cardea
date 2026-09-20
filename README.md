@@ -2,6 +2,8 @@
 
 One subscription, login, or key can run out. Different models are also good at different work. Cardea gives you one CLI, local dashboard, and MCP server that can route tasks across Claude Code, Codex, Grok, and any OpenAI-compatible endpoint by cost and strength.
 
+Measured results and practical routing rules live in [docs/ROUTING.md](docs/ROUTING.md). In our own use, moving implementation to workers and reviewing in a fresh context cut coordinator-side cost by an estimated 85% — one project, so read the caveats.
+
 Bring your own keys, or load Cardea into the LLM you already use.
 
 ## Quick Start

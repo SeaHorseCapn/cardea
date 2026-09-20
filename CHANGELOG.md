@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added a practical routing guide with measured delegation results and coordinator hygiene rules.
+
 ## 0.2.0
 
 - Added `cardea mcp`, a stdio MCP server with `list_workers`, `delegate`, `fan_out`, and `panel` tools.
