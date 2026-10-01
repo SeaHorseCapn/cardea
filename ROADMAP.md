@@ -2,14 +2,19 @@
 
 Cardea is young. These are the next things worth building, roughly in order. Issues and PRs welcome — adapters for vendor CLIs change fastest and are the best place to start (see CONTRIBUTING.md).
 
-## 0.3 — make delegation production-shaped
+## 0.3 — task board for pull-based workers
+
+- **Done:** A local task board with append-only storage, worker leases, batches, replicas, dependencies, `review_of`, worker tokens, remote MCP over Streamable HTTP, coordinator MCP tools, and CLI commands.
+- **Async jobs foundation:** The board is now the durable primitive for long-running work. Local async jobs can build on the same lease/result model instead of holding one synchronous MCP tool call open.
+
+## 0.4 — local runner and async jobs
 
 - **Async jobs.** `delegate` is synchronous, and real implementation tasks run for many minutes — longer than most MCP hosts will hold a tool call. Add `delegate_async → run_id`, `get_run`, and a completion notification. Runs already persist to `~/.cardea/runs`.
 - **Summaries by contract.** Return `{ summary, report_path }` with the full worker output on disk, so the coordinating model's context stays small. The coordinator's context is the expensive place.
 - **A write pipeline, not just write permission.** Worktree per write-run → worker implements → Cardea runs a `verify` command itself (never trust a self-reported "tests pass") → policy check on sensitive files (build scripts, CI, tsconfig) → commit on a branch → return the diff stat.
 - **Reviewer ≠ implementer.** A built-in review stage that hands the diff and the spec to a *different* model than the one that wrote it.
 
-## 0.4 — know about limits
+## 0.5 — know about limits
 
 - **Quota awareness.** Detect rate-limit and usage-window errors, fail over to another worker or tier, resume killed runs, show per-worker usage in `cardea doctor`.
 - **Model discovery.** Vendor model ids drift. `doctor --live` should list what each CLI/endpoint actually serves and propose the config fix.
