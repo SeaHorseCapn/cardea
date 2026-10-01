@@ -261,10 +261,18 @@ describe("MCP server", () => {
     try {
       const tools = await client.listTools();
       expect(tools.tools.map((t) => t.name).sort()).toEqual([
+        "board_stats",
+        "cancel_task",
         "delegate",
         "fan_out",
+        "get_batch",
+        "get_task",
+        "list_tasks",
         "list_workers",
         "panel",
+        "post_batch",
+        "post_task",
+        "wait_for",
       ]);
     } finally {
       await client.close();
@@ -410,10 +418,18 @@ describe("MCP server", () => {
       child.stdin.write(JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} }) + "\n");
       const listed = await waitFor(2);
       expect(listed.result.tools.map((t: { name: string }) => t.name).sort()).toEqual([
+        "board_stats",
+        "cancel_task",
         "delegate",
         "fan_out",
+        "get_batch",
+        "get_task",
+        "list_tasks",
         "list_workers",
         "panel",
+        "post_batch",
+        "post_task",
+        "wait_for",
       ]);
     } finally {
       child.kill();

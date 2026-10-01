@@ -135,7 +135,7 @@ export async function serve(port: number, host = "127.0.0.1"): Promise<void> {
     ws.send(
       JSON.stringify({
         type: "hello",
-        version: "0.2.0",
+        version: "0.3.0",
         defaultCwd: process.cwd(),
         protectedPaths: cfg.safety.protectedPaths,
         workers: enabledWorkerNames(cfg),

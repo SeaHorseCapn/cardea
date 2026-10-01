@@ -96,7 +96,19 @@ Generic MCP JSON:
 }
 ```
 
-The MCP tools are `list_workers`, `delegate`, `fan_out`, and `panel`. `panel` returns separate answers; the host LLM synthesizes them. Start with `cardea mcp --allow-writes` if you want MCP delegate calls to be allowed to request writes.
+The core MCP tools are `list_workers`, `delegate`, `fan_out`, and `panel`. `panel` returns separate answers; the host LLM synthesizes them. When a board is running, `cardea mcp` also exposes coordinator board tools such as `post_task`, `list_tasks`, and `wait_for`. Start with `cardea mcp --allow-writes` if you want MCP delegate calls to be allowed to request writes.
+
+### Task Board
+
+For always-on agents that can call MCP servers but cannot be launched by Cardea, run:
+
+```sh
+cardea board serve
+cardea board token create --name review-a --capability code
+cardea board brief --name review-a
+```
+
+The board is a pull queue: the coordinator posts tasks and remote workers claim them over MCP. Worker tokens only ever reach `/mcp`; the coordinator CLI and tools use a separate owner-only local socket. See [docs/BOARD.md](docs/BOARD.md) for worker tokens, batches, replicas, `review_of`, HTTPS exposure, and the safety model.
 
 ## Using API Keys Instead
 
